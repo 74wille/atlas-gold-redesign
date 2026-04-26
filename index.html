@@ -1,0 +1,2301 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Atlas Gold — Pure Himalayan Shilajit Resin</title>
+<meta name="description" content="More Energy. Deeper Focus. Pure Himalayan shilajit resin harvested above 18,000ft in Gilgit–Baltistan. 85+ minerals. Zero fillers." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..900,30..100;1,9..144,300..900,30..100&family=Manrope:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   ATLAS GOLD — design tokens
+   ============================================================ */
+:root{
+  --ink:        #0B0907;          /* deep resin black */
+  --ink-2:      #14100B;          /* slightly raised */
+  --ink-3:      #1C1611;
+  --paper:      #F2E8D5;          /* warm parchment */
+  --paper-2:    #E8DCC4;
+  --bone:       #C9BFA8;
+  --gold:       #C9A24A;          /* antique gold */
+  --gold-2:     #E6C77A;          /* highlight */
+  --gold-3:     #8C6A22;          /* burnished */
+  --rust:       #6B3A1A;
+  --moss:       #4A4A2C;
+  --line:       rgba(201,162,74,.22);
+  --line-soft:  rgba(242,232,213,.10);
+
+  --display: 'Fraunces', 'Cormorant Garamond', ui-serif, Georgia, serif;
+  --body:    'Manrope', ui-sans-serif, system-ui, sans-serif;
+  --mono:    'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --max: 1440px;
+  --gutter: clamp(20px, 4vw, 56px);
+}
+
+*{box-sizing:border-box; margin:0; padding:0;}
+html,body{background:var(--ink); color:var(--paper);}
+html{scroll-behavior:smooth;}
+body{
+  font-family: var(--body);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.55;
+  letter-spacing: .005em;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+  background:
+    radial-gradient(1200px 700px at 80% -10%, rgba(201,162,74,.10), transparent 60%),
+    radial-gradient(900px 600px at -10% 30%, rgba(107,58,26,.10), transparent 60%),
+    var(--ink);
+}
+img{max-width:100%; display:block;}
+a{color:inherit; text-decoration:none;}
+button{font:inherit; color:inherit; background:none; border:none; cursor:pointer;}
+
+/* film-grain overlay */
+body::before{
+  content:""; position:fixed; inset:0; pointer-events:none; z-index:50;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 .9  0 0 0 0 .7  0 0 0 .35 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/></svg>");
+  opacity:.06; mix-blend-mode: overlay;
+}
+
+/* ============================================================
+   reusable typography
+   ============================================================ */
+.eyebrow{
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.eyebrow .dot{
+  display:inline-block; width:6px; height:6px; border-radius:50%;
+  background: var(--gold); margin-right:10px; vertical-align: middle;
+  box-shadow: 0 0 0 3px rgba(201,162,74,.15);
+}
+.display{
+  font-family: var(--display);
+  font-weight: 350;
+  font-variation-settings: "opsz" 144, "SOFT" 30;
+  letter-spacing: -.025em;
+  line-height: .92;
+  color: var(--paper);
+}
+.display em{
+  font-style: italic;
+  font-weight: 300;
+  font-variation-settings: "opsz" 144, "SOFT" 100;
+  color: var(--gold-2);
+}
+.lead{
+  font-size: clamp(15px, 1.1vw, 17px);
+  line-height: 1.65;
+  color: rgba(242,232,213,.78);
+  max-width: 56ch;
+}
+
+/* container */
+.wrap{ max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
+
+/* button */
+.btn{
+  display:inline-flex; align-items:center; gap:14px;
+  padding: 18px 26px;
+  font-family: var(--mono);
+  font-size: 11px; letter-spacing:.24em; text-transform: uppercase;
+  background: var(--gold);
+  color: var(--ink);
+  border-radius: 999px;
+  transition: transform .35s ease, background .35s ease, box-shadow .35s ease;
+  position: relative; overflow:hidden;
+  box-shadow: 0 10px 40px -15px rgba(201,162,74,.5);
+}
+.btn:hover{ transform: translateY(-2px); background: var(--gold-2); box-shadow: 0 16px 50px -15px rgba(230,199,122,.7); }
+.btn .arr{ width:18px; height:1px; background: currentColor; position:relative; }
+.btn .arr::after{ content:""; position:absolute; right:0; top:-3px; width:7px; height:7px; border-right:1px solid currentColor; border-top:1px solid currentColor; transform: rotate(45deg); }
+.btn-ghost{
+  background: transparent; color: var(--paper);
+  border: 1px solid var(--line);
+  box-shadow: none;
+}
+.btn-ghost:hover{ background: rgba(201,162,74,.08); border-color: var(--gold); color: var(--gold-2); box-shadow: none;}
+
+/* ============================================================
+   announcement bar
+   ============================================================ */
+.bar{
+  position: relative; z-index: 30;
+  background: var(--ink-2);
+  border-bottom: 1px solid var(--line-soft);
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--bone);
+}
+.bar-track{
+  display:flex; gap: 64px; align-items:center;
+  padding: 11px 0;
+  white-space:nowrap;
+  animation: marquee 40s linear infinite;
+}
+.bar-track span{ display:inline-flex; align-items:center; gap:10px; opacity:.85; }
+.bar-track .star{ color: var(--gold); }
+@keyframes marquee{ to{ transform: translateX(-50%);} }
+
+/* ============================================================
+   header / nav
+   ============================================================ */
+.nav{
+  position: sticky; top: 0; z-index: 40;
+  backdrop-filter: blur(14px) saturate(120%);
+  -webkit-backdrop-filter: blur(14px) saturate(120%);
+  background: linear-gradient(to bottom, rgba(11,9,7,.85), rgba(11,9,7,.55));
+  border-bottom: 1px solid var(--line-soft);
+}
+.nav-row{
+  display:grid; grid-template-columns: 1fr auto 1fr;
+  align-items: center; padding: 22px 0;
+}
+.nav-left, .nav-right{ display:flex; gap: 34px; align-items:center; }
+.nav-right{ justify-content:flex-end; }
+.nav a{
+  font-family: var(--mono); font-size: 11px; letter-spacing:.24em;
+  text-transform: uppercase; color: rgba(242,232,213,.78);
+  position:relative; padding: 4px 0;
+}
+.nav a:hover{ color: var(--gold-2); }
+.nav a::after{
+  content:""; position:absolute; left:0; right:0; bottom:-2px; height:1px;
+  background: var(--gold); transform: scaleX(0); transform-origin: left;
+  transition: transform .4s ease;
+}
+.nav a:hover::after{ transform: scaleX(1); }
+.brand{
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: 22px;
+  letter-spacing: .35em;
+  color: var(--paper);
+  text-align:center;
+  display:flex; flex-direction:column; align-items:center; gap:2px;
+}
+.brand .sub{ font-family: var(--mono); font-size: 9px; letter-spacing:.4em; color: var(--gold); margin-top:2px; }
+.cart{
+  display:inline-flex; align-items:center; gap: 10px;
+  padding: 10px 16px; border-radius: 999px;
+  border: 1px solid var(--line);
+}
+.cart .num{ color: var(--gold); }
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero{
+  position: relative;
+  min-height: 92vh;
+  padding: 80px 0 60px;
+  overflow: hidden;
+  isolation: isolate;
+}
+.hero-bg{
+  position:absolute; inset:0; z-index:-2;
+  background:
+    radial-gradient(60% 50% at 70% 20%, rgba(201,162,74,.18), transparent 60%),
+    linear-gradient(180deg, #0B0907 0%, #110D08 40%, #0B0907 100%);
+}
+.hero-mountain{
+  position:absolute; inset:0; z-index:-1;
+  background-image: url('https://atlasgoldshilajit.com/cdn/shop/files/Desktop.png');
+  background-size: cover; background-position: center 65%;
+  opacity:.35; mix-blend-mode: luminosity;
+  filter: contrast(1.05) saturate(.7);
+  mask-image: linear-gradient(180deg, transparent 0%, #000 30%, #000 70%, transparent 100%);
+  -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 30%, #000 70%, transparent 100%);
+}
+
+.hero-grid{
+  position: relative;
+  display:grid;
+  grid-template-columns: 1fr;
+  gap: 60px;
+  align-items:end;
+  min-height: calc(92vh - 140px);
+}
+.hero-meta{
+  display:flex; justify-content: space-between; align-items:center;
+  font-family: var(--mono); font-size: 11px; letter-spacing:.24em;
+  text-transform: uppercase; color: var(--bone);
+  padding-bottom: 30px;
+  border-bottom: 1px solid var(--line-soft);
+}
+.hero-meta .l{ display:flex; gap:36px; }
+.hero-meta .l span:first-child{ color: var(--gold);}
+
+.hero-headline{
+  display:flex; flex-direction:column; gap: 20px;
+  position: relative;
+}
+.hero-headline h1{
+  font-size: clamp(64px, 13vw, 220px);
+  letter-spacing: -.04em;
+}
+.hero-headline h1 .row{ display:block; position:relative; }
+.hero-headline h1 .row.mid{
+  display:flex; align-items:center; gap: 28px;
+  font-style: italic; color: var(--gold-2);
+  font-variation-settings: "opsz" 144, "SOFT" 100;
+  font-weight: 300;
+}
+.hero-headline h1 .row.mid::after{
+  content:""; flex:1; height:1px; background: var(--line); margin-left: 14px;
+}
+
+.hero-bottom{
+  display:grid;
+  grid-template-columns: 1.5fr 1fr 1fr;
+  gap: 60px;
+  align-items:end;
+  padding-top: 40px;
+  border-top: 1px solid var(--line-soft);
+}
+.hero-tag{
+  font-family: var(--display);
+  font-style: italic;
+  font-size: clamp(18px, 1.6vw, 24px);
+  line-height: 1.4;
+  color: rgba(242,232,213,.85);
+  max-width: 38ch;
+}
+.hero-tag em{ color: var(--gold-2); font-style: italic;}
+.hero-cta{ display:flex; flex-direction:column; gap:14px; align-items:flex-start; }
+.hero-cta .btn{ width: max-content;}
+.hero-cta .price{
+  font-family: var(--mono);
+  font-size: 11px; letter-spacing:.24em; text-transform: uppercase;
+  color: var(--bone);
+}
+.hero-cta .price .num{ color: var(--paper); font-size: 13px;}
+
+.hero-stats{ display:flex; flex-direction:column; gap:18px;}
+.hero-stats .row{
+  display:flex; justify-content: space-between; align-items: baseline;
+  padding-bottom:12px; border-bottom: 1px dashed var(--line-soft);
+  font-family: var(--mono); font-size: 11px; letter-spacing:.18em; text-transform: uppercase;
+  color: rgba(242,232,213,.55);
+}
+.hero-stats .row b{
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: 22px;
+  color: var(--paper);
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+/* hero seal */
+.seal{
+  position: absolute; right: 0; top: 0;
+  width: 130px; height: 130px;
+  display:flex; align-items:center; justify-content:center;
+  font-family: var(--mono); font-size: 9px; letter-spacing:.3em;
+  color: var(--gold);
+  animation: rotate 22s linear infinite;
+}
+@keyframes rotate{ to{ transform: rotate(360deg);} }
+.seal svg{ position:absolute; inset:0; width:100%; height:100%; }
+.seal .center{
+  position: absolute;
+  font-family: var(--display); font-style: italic;
+  font-size: 22px; color: var(--gold-2);
+  letter-spacing: 0; text-transform: none;
+}
+
+/* ============================================================
+   trust marquee
+   ============================================================ */
+.trust{
+  border-top: 1px solid var(--line-soft);
+  border-bottom: 1px solid var(--line-soft);
+  background: var(--ink-2);
+  overflow: hidden;
+  padding: 28px 0;
+}
+.trust-track{
+  display:flex; gap: 80px; align-items:center;
+  white-space:nowrap;
+  animation: marquee 50s linear infinite;
+}
+.trust-track .item{
+  display:inline-flex; align-items:center; gap: 14px;
+  font-family: var(--display); font-style: italic;
+  font-size: 28px; color: rgba(242,232,213,.55);
+  font-variation-settings: "opsz" 144, "SOFT" 100;
+}
+.trust-track .item .ico{
+  width: 22px; height: 22px;
+  border: 1px solid var(--gold); border-radius: 50%;
+  display:inline-flex; align-items:center; justify-content:center;
+  color: var(--gold); font-family: var(--mono); font-size: 10px; font-style:normal;
+}
+
+/* ============================================================
+   ORIGIN section
+   ============================================================ */
+.origin{
+  padding: 140px 0 120px;
+  position: relative;
+}
+.origin-grid{
+  display:grid;
+  grid-template-columns: 5fr 7fr;
+  gap: 80px;
+  align-items: start;
+}
+.origin-image{
+  position: relative;
+  aspect-ratio: 3 / 4;
+  border-radius: 4px;
+  overflow:hidden;
+  background:
+    radial-gradient(110% 90% at 50% 30%, #C9A24A 0%, #6B4A1A 55%, #1A1208 100%);
+}
+.origin-image img{
+  width:100%; height:100%; object-fit: cover;
+  mix-blend-mode: multiply;
+  filter: contrast(1.12) saturate(1.05);
+}
+.origin-image::before{
+  content:""; position:absolute; inset:0; z-index:2; pointer-events:none;
+  background:
+    radial-gradient(80% 70% at 50% 40%, transparent 30%, rgba(11,9,7,.55) 100%);
+}
+.origin-image::after{
+  content:""; position:absolute; inset:0; z-index:3;
+  background: linear-gradient(180deg, rgba(0,0,0,0) 55%, rgba(11,9,7,.85));
+}
+.origin-image .tag{ z-index: 4; }
+.origin-image .tag{
+  position:absolute; left: 22px; bottom: 22px;
+  font-family: var(--mono); font-size: 10px; letter-spacing:.28em;
+  text-transform: uppercase; color: var(--gold-2);
+  z-index:2;
+}
+.origin-text h2{
+  font-size: clamp(40px, 5.5vw, 84px);
+  margin-top: 30px;
+  margin-bottom: 36px;
+}
+.origin-text .lead{ margin-bottom: 24px; max-width: 56ch;}
+.origin-meta{
+  margin-top: 52px;
+  display:grid; grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  padding-top: 40px;
+  border-top: 1px solid var(--line);
+}
+.origin-meta .cell .num{
+  font-family: var(--display);
+  font-size: 48px;
+  font-weight: 300;
+  font-variation-settings: "opsz" 144, "SOFT" 100;
+  font-style: italic;
+  color: var(--gold-2);
+  display:block; line-height:1;
+  margin-bottom: 10px;
+}
+.origin-meta .cell .lab{
+  font-family: var(--mono);
+  font-size: 10px; letter-spacing: .24em; text-transform: uppercase;
+  color: var(--bone);
+}
+
+/* ============================================================
+   PRODUCT showcase
+   ============================================================ */
+.product{
+  padding: 120px 0 140px;
+  background: linear-gradient(180deg, var(--ink) 0%, #0F0B07 50%, var(--ink) 100%);
+  position: relative;
+  border-top: 1px solid var(--line-soft);
+  border-bottom: 1px solid var(--line-soft);
+}
+.product-head{
+  display:grid; grid-template-columns: 1fr 1fr; gap: 60px;
+  align-items:end; margin-bottom: 70px;
+}
+.product-head h2{
+  font-size: clamp(44px, 6vw, 96px);
+}
+.product-head .lead{ justify-self: end;}
+
+.product-grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+.product-stage{
+  position: relative;
+  aspect-ratio: 1 / 1.05;
+  background:
+    radial-gradient(60% 60% at 50% 50%, rgba(201,162,74,.18), transparent 70%),
+    linear-gradient(180deg, #1A130C 0%, #0B0907 100%);
+  border-radius: 6px;
+  overflow:hidden;
+  display:flex; align-items:center; justify-content:center;
+  border: 1px solid var(--line-soft);
+}
+.product-stage.real{ padding: 8%; }
+.product-stage .prod-img{
+  position: relative; z-index: 2;
+  width: 100%; height: 100%; object-fit: contain;
+  filter: drop-shadow(0 50px 60px rgba(0,0,0,.7)) drop-shadow(0 0 40px rgba(201,162,74,.15));
+}
+.product-stage::before{
+  content:""; position:absolute; inset:0;
+  background-image:
+    repeating-linear-gradient(0deg, transparent 0 49px, rgba(201,162,74,.05) 49px 50px),
+    repeating-linear-gradient(90deg, transparent 0 49px, rgba(201,162,74,.05) 49px 50px);
+  mask-image: radial-gradient(70% 70% at 50% 50%, #000, transparent);
+}
+.jar{
+  position: relative;
+  width: 58%;
+  aspect-ratio: 1 / 1.4;
+  display:flex; flex-direction:column; align-items:center;
+  filter: drop-shadow(0 60px 60px rgba(0,0,0,.7));
+}
+.jar .lid{
+  width: 78%; height: 14%;
+  background: linear-gradient(180deg, #4A3A1E 0%, #2E2412 60%, #1A1410 100%);
+  border-radius: 8px 8px 4px 4px;
+  border: 1px solid #5a4423;
+  position: relative; z-index:2;
+}
+.jar .lid::after{
+  content:""; position:absolute; inset: 30% 8% auto 8%; height: 1px;
+  background: rgba(201,162,74,.4);
+}
+.jar .body{
+  width:100%; flex:1;
+  background:
+    radial-gradient(120% 100% at 50% 0%, rgba(255,255,255,.06), transparent 40%),
+    linear-gradient(180deg, #0F0B07 0%, #1A130C 100%);
+  border: 1px solid #2a2014;
+  border-radius: 4px 4px 18px 18px;
+  position: relative;
+  display:flex; align-items:center; justify-content:center;
+  overflow:hidden;
+}
+.jar .label{
+  width: 78%; padding: 22px 14px;
+  background: var(--paper);
+  color: var(--ink);
+  border-radius: 2px;
+  text-align:center;
+  font-family: var(--display);
+  position: relative;
+  box-shadow: 0 4px 20px rgba(0,0,0,.4);
+}
+.jar .label::before, .jar .label::after{
+  content:""; position:absolute; left: 8%; right:8%;
+  height:1px; background: var(--ink);
+}
+.jar .label::before{ top: 12px;} .jar .label::after{ bottom: 12px;}
+.jar .label .name{
+  font-size: 22px; letter-spacing:.18em;
+  font-weight: 500; color: var(--ink);
+}
+.jar .label .sub{
+  font-family: var(--mono); font-size: 8px; letter-spacing:.32em;
+  text-transform: uppercase; color: var(--gold-3);
+  margin-top: 4px;
+}
+.jar .label .crest{
+  font-family: var(--display); font-style: italic;
+  font-size: 36px; color: var(--gold-3);
+  margin: 6px 0;
+}
+.jar .label .vol{
+  font-family: var(--mono); font-size: 9px; letter-spacing:.3em;
+  text-transform: uppercase; color: var(--ink); margin-top: 6px; opacity:.7;
+}
+.jar .glow{
+  position:absolute; left:50%; bottom: -20px; transform: translateX(-50%);
+  width: 70%; height: 30px; border-radius: 50%;
+  background: radial-gradient(50% 50% at 50% 50%, rgba(201,162,74,.5), transparent 70%);
+  filter: blur(10px);
+}
+
+/* hotspots */
+.hot{
+  position: absolute;
+  font-family: var(--mono); font-size: 10px; letter-spacing:.24em;
+  text-transform: uppercase; color: var(--gold);
+  display:flex; align-items:center; gap: 12px;
+}
+.hot .num{
+  width: 26px; height: 26px; border: 1px solid var(--gold);
+  border-radius: 50%; display:inline-flex; align-items:center; justify-content:center;
+  color: var(--gold);
+}
+.hot.right{ flex-direction: row-reverse; }
+.hot.h1{ top: 18%; left: 6%; }
+.hot.h2{ top: 44%; left: 4%; }
+.hot.h3{ top: 22%; right: 6%; }
+.hot.h4{ bottom: 22%; right: 6%; }
+.hot .line{
+  display:block; width: 60px; height:1px; background: var(--gold); position:relative;
+}
+.hot .line::after{
+  content:""; position:absolute; right:0; top:-2px;
+  width:5px; height:5px; border-radius:50%; background: var(--gold);
+}
+.hot.right .line::after{ right:auto; left: 0;}
+
+/* product info */
+.product-info h3{
+  font-family: var(--display); font-weight: 400;
+  font-size: clamp(28px, 3vw, 40px);
+  letter-spacing: -.015em;
+  margin-bottom: 18px;
+}
+.product-info .stars{
+  display:flex; gap: 4px; align-items:center;
+  font-family: var(--mono); font-size: 11px; letter-spacing:.2em;
+  text-transform: uppercase; color: var(--bone);
+  margin-bottom: 22px;
+}
+.product-info .stars .s{ color: var(--gold);}
+.product-info .copy{
+  color: rgba(242,232,213,.78);
+  font-size: 15.5px; line-height: 1.7;
+  margin-bottom: 28px;
+}
+.product-spec{
+  display:grid; grid-template-columns: 1fr 1fr; gap: 0;
+  border-top: 1px solid var(--line);
+  margin: 28px 0 36px;
+}
+.product-spec .row{
+  display:flex; justify-content: space-between;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--line-soft);
+  font-family: var(--mono); font-size: 11px; letter-spacing:.16em;
+  text-transform: uppercase; color: rgba(242,232,213,.6);
+}
+.product-spec .row b{ color: var(--paper); font-weight: 500;}
+.product-spec .row:nth-child(odd){ border-right: 1px solid var(--line-soft); padding-right: 24px;}
+.product-spec .row:nth-child(even){ padding-left: 24px;}
+
+.qty{
+  display:flex; align-items:center; gap: 0;
+  border:1px solid var(--line); border-radius: 999px;
+  padding: 4px;
+}
+.qty button{
+  width: 36px; height: 36px; border-radius: 50%; color: var(--paper);
+}
+.qty .v{
+  width: 36px; text-align:center; font-family: var(--mono); font-size: 13px;
+}
+.cta-row{
+  display:flex; gap: 14px; align-items:center; flex-wrap: wrap;
+  margin-top: 8px;
+}
+.assurances{
+  margin-top: 30px;
+  display:grid; grid-template-columns: repeat(3, 1fr); gap: 14px;
+  font-family: var(--mono); font-size: 10px; letter-spacing:.22em;
+  text-transform: uppercase; color: var(--bone);
+}
+.assurances div{ display:flex; align-items:center; gap: 10px;}
+.assurances svg{ color: var(--gold); width: 16px; height:16px;}
+
+/* ============================================================
+   BENEFITS
+   ============================================================ */
+.benefits{ padding: 140px 0 120px; }
+.benefits-head{
+  display:grid; grid-template-columns: 1fr 1fr;
+  gap: 60px; align-items: end;
+  margin-bottom: 80px;
+}
+.benefits-head h2{
+  font-size: clamp(44px, 6.5vw, 110px);
+}
+.bgrid{
+  display:grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 1px;
+  background: var(--line-soft);
+  border: 1px solid var(--line-soft);
+}
+.bcell{
+  background: var(--ink);
+  padding: 44px 36px;
+  position: relative;
+  min-height: 320px;
+  display:flex; flex-direction:column; gap: 22px;
+  transition: background .4s ease;
+}
+.bcell:hover{ background: #100C08;}
+.bcell.span4{ grid-column: span 4;}
+.bcell.span6{ grid-column: span 6;}
+.bcell.span8{ grid-column: span 8;}
+.bcell .ico{
+  width: 48px; height: 48px;
+  border: 1px solid var(--gold);
+  border-radius: 50%;
+  display:flex; align-items:center; justify-content:center;
+  color: var(--gold);
+}
+.bcell h3{
+  font-family: var(--display); font-weight: 400;
+  font-size: 26px; letter-spacing: -.01em;
+  color: var(--paper);
+}
+.bcell p{
+  color: rgba(242,232,213,.65);
+  font-size: 14.5px; line-height: 1.65;
+}
+.bcell .num{
+  position:absolute; top: 30px; right: 30px;
+  font-family: var(--mono); font-size: 10px; letter-spacing:.24em;
+  color: var(--gold); opacity:.8;
+}
+.bcell.feature{
+  background:
+    linear-gradient(135deg, rgba(201,162,74,.08), transparent 60%),
+    var(--ink-2);
+}
+.bcell.feature h3{
+  font-style: italic;
+  font-size: 38px;
+  font-variation-settings: "opsz" 144, "SOFT" 100;
+  color: var(--gold-2);
+  font-weight: 300;
+}
+
+/* ============================================================
+   RITUAL
+   ============================================================ */
+.ritual{
+  padding: 140px 0;
+  background: linear-gradient(180deg, var(--ink) 0%, #100C08 50%, var(--ink) 100%);
+  border-top: 1px solid var(--line-soft);
+  border-bottom: 1px solid var(--line-soft);
+}
+.ritual-head{ text-align:center; margin-bottom: 80px;}
+.ritual-head .eyebrow{ margin-bottom: 22px; display:inline-block; }
+.ritual-head h2{
+  font-size: clamp(44px, 6.5vw, 110px);
+  max-width: 16ch; margin: 0 auto;
+}
+.ritual-head h2 em{ color: var(--gold-2);}
+.steps{
+  display:grid; grid-template-columns: repeat(4, 1fr);
+  gap: 40px; align-items:start;
+  position: relative;
+}
+.steps::before{
+  content:""; position:absolute; left:8%; right:8%; top: 36px;
+  border-top: 1px dashed var(--line);
+}
+.step{ position:relative; text-align:center;}
+.step .circ{
+  width: 72px; height:72px; margin: 0 auto 30px;
+  border: 1px solid var(--gold);
+  border-radius: 50%; background: var(--ink);
+  display:flex; align-items:center; justify-content:center;
+  font-family: var(--display); font-style: italic;
+  color: var(--gold-2); font-size: 28px;
+  position: relative; z-index: 2;
+}
+.step h4{
+  font-family: var(--display); font-weight: 400;
+  font-size: 22px; margin-bottom: 14px;
+}
+.step p{ color: rgba(242,232,213,.65); font-size: 14px; line-height: 1.6; max-width: 32ch; margin: 0 auto;}
+
+/* ============================================================
+   BUILT BY BROTHERS
+   ============================================================ */
+.brothers{
+  padding: 140px 0;
+  background:
+    radial-gradient(60% 50% at 0% 0%, rgba(201,162,74,.10), transparent 60%),
+    radial-gradient(50% 50% at 100% 100%, rgba(107,58,26,.10), transparent 60%),
+    var(--ink-2);
+  border-top: 1px solid var(--line-soft);
+  border-bottom: 1px solid var(--line-soft);
+  position: relative;
+}
+.brothers-grid{
+  display:grid; grid-template-columns: 6fr 6fr;
+  gap: 80px; align-items: center;
+}
+.brothers-image{
+  position: relative;
+  aspect-ratio: 4 / 5;
+  border-radius: 4px; overflow:hidden;
+  background: var(--ink);
+  border: 1px solid var(--line-soft);
+}
+.brothers-image img{
+  width:100%; height:100%; object-fit: cover;
+  filter: contrast(1.05) saturate(.92);
+}
+.brothers-image::after{
+  content:""; position:absolute; inset:0;
+  background: linear-gradient(180deg, rgba(0,0,0,0) 55%, rgba(11,9,7,.65));
+  pointer-events:none;
+}
+.brothers-image figcaption{
+  position: absolute; left: 24px; right: 24px; bottom: 22px;
+  display:flex; align-items:center; gap: 14px;
+  z-index: 2;
+  font-family: var(--mono); font-size: 10px; letter-spacing: .28em;
+  text-transform: uppercase; color: var(--gold-2);
+}
+.brothers-image figcaption .line{
+  width: 30px; height: 1px; background: var(--gold);
+}
+.brothers-text h2{
+  font-size: clamp(48px, 6.4vw, 100px);
+  margin: 22px 0 36px;
+}
+.brothers-copy p{
+  font-family: var(--display);
+  font-weight: 350;
+  font-variation-settings: "opsz" 144, "SOFT" 50;
+  font-size: clamp(17px, 1.25vw, 19.5px);
+  line-height: 1.6;
+  color: rgba(242,232,213,.84);
+  margin-bottom: 18px;
+  letter-spacing: -.005em;
+}
+.brothers-copy p em{
+  font-style: italic;
+  color: var(--gold-2);
+  font-variation-settings: "opsz" 144, "SOFT" 100;
+}
+.brothers-copy p.closer{
+  margin-top: 26px; padding-top: 26px;
+  border-top: 1px solid var(--line);
+  font-size: clamp(20px, 1.5vw, 24px);
+  color: var(--paper);
+  font-style: italic;
+  font-variation-settings: "opsz" 144, "SOFT" 100;
+}
+.brothers-cta{
+  display:flex; align-items: center; gap: 32px;
+  margin-top: 40px; flex-wrap: wrap;
+}
+.brothers-cta .signed{
+  display:flex; flex-direction: column;
+  font-family: var(--mono); font-size: 10px; letter-spacing: .26em;
+  text-transform: uppercase; color: var(--bone);
+}
+.brothers-cta .signed .sig-name{
+  font-family: var(--display); font-style: italic;
+  font-variation-settings: "opsz" 144, "SOFT" 100;
+  font-size: 26px; color: var(--gold-2);
+  letter-spacing: 0; text-transform: none;
+  margin-top: 2px;
+}
+@media (max-width: 1024px){
+  .brothers-grid{ grid-template-columns: 1fr; gap: 50px;}
+}
+
+/* ============================================================
+   LAB / TRUST
+   ============================================================ */
+.lab{ padding: 140px 0; }
+.lab-grid{
+  display:grid; grid-template-columns: 7fr 5fr; gap: 80px;
+  align-items: center;
+}
+.lab-text h2{
+  font-size: clamp(40px, 5.5vw, 84px);
+  margin: 22px 0 30px;
+}
+.lab-text h2 em{ color: var(--gold-2);}
+.lab-text .lead{ margin-bottom: 36px;}
+.lab-list{
+  display:grid; gap: 0;
+  border-top: 1px solid var(--line);
+}
+.lab-list .row{
+  display:grid; grid-template-columns: 60px 1fr auto;
+  gap: 20px; align-items:center;
+  padding: 22px 0;
+  border-bottom: 1px solid var(--line-soft);
+}
+.lab-list .row .n{
+  font-family: var(--mono); font-size: 11px;
+  color: var(--gold); letter-spacing: .2em;
+}
+.lab-list .row .name{
+  font-family: var(--display); font-weight: 400;
+  font-size: 20px;
+}
+.lab-list .row .val{
+  font-family: var(--mono); font-size: 11px; letter-spacing:.2em;
+  color: var(--bone);
+}
+
+.cert{
+  position: relative;
+  aspect-ratio: 4 / 5;
+  border: 1px solid var(--line);
+  background:
+    radial-gradient(50% 40% at 50% 30%, rgba(201,162,74,.12), transparent 70%),
+    var(--ink-2);
+  padding: 36px;
+  display:flex; flex-direction:column; justify-content:space-between;
+}
+.cert .top{
+  display:flex; justify-content:space-between; align-items:start;
+  font-family: var(--mono); font-size: 10px; letter-spacing:.24em;
+  text-transform: uppercase; color: var(--bone);
+}
+.cert .top .gold{ color: var(--gold);}
+.cert .crest{
+  text-align:center; flex:1; display:flex; flex-direction:column;
+  justify-content:center; align-items:center; gap: 18px;
+  padding: 30px 0;
+}
+.cert .crest .mark{
+  width: 90px; height: 90px;
+  border-radius: 50%;
+  border: 1px solid var(--gold);
+  display:flex; align-items:center; justify-content:center;
+  position: relative;
+}
+.cert .crest .mark::before, .cert .crest .mark::after{
+  content:""; position:absolute; inset:5px;
+  border-radius: 50%; border: 1px dashed rgba(201,162,74,.3);
+}
+.cert .crest .mark::after{ inset: 12px; border-style: solid; border-color: rgba(201,162,74,.15);}
+.cert .crest .mark span{
+  font-family: var(--display); font-style: italic;
+  font-size: 38px; color: var(--gold-2);
+}
+.cert .crest h3{
+  font-family: var(--display); font-weight: 400;
+  font-size: 24px; letter-spacing: .04em;
+  text-align:center;
+}
+.cert .crest p{
+  font-family: var(--mono); font-size: 10px; letter-spacing:.3em;
+  text-transform: uppercase; color: var(--bone);
+  text-align:center;
+}
+.cert .signature{
+  display:flex; justify-content:space-between; align-items:end;
+  font-family: var(--mono); font-size: 9px; letter-spacing:.24em;
+  text-transform: uppercase; color: var(--bone);
+}
+.cert.with-img{ padding: 24px;}
+.cert .cert-photo{
+  flex:1; margin: 18px 0;
+  border-radius: 4px; overflow: hidden;
+  position: relative;
+  display:flex; align-items:center; justify-content:center;
+  background:
+    radial-gradient(120% 100% at 50% 30%, #C9A24A 0%, #6B4A1A 55%, #1A1208 100%);
+}
+.cert .cert-photo img{
+  width:100%; height:100%; object-fit: cover;
+  mix-blend-mode: multiply;
+  filter: contrast(1.15) saturate(1.05);
+}
+.cert .cert-photo::before{
+  content:""; position:absolute; inset:0;
+  background:
+    radial-gradient(70% 70% at 50% 50%, transparent 30%, rgba(11,9,7,.7) 100%);
+  z-index: 2; pointer-events:none;
+}
+.cert .cert-photo::after{
+  content:""; position:absolute; inset: 10px;
+  border: 1px solid rgba(201,162,74,.35);
+  pointer-events:none; z-index: 3;
+}
+.cert .signature .sig{
+  font-family: var(--display); font-style: italic;
+  font-size: 26px; color: var(--paper); text-transform: none; letter-spacing: 0;
+}
+
+/* ============================================================
+   TESTIMONIALS
+   ============================================================ */
+.test{
+  padding: 140px 0;
+  background: var(--ink-2);
+  border-top: 1px solid var(--line-soft);
+  border-bottom: 1px solid var(--line-soft);
+}
+.test-head{
+  display:flex; justify-content: space-between; align-items: end;
+  margin-bottom: 70px;
+}
+.test-head h2{
+  font-size: clamp(40px, 5vw, 76px);
+  max-width: 14ch;
+}
+.test-head .meta{
+  font-family: var(--mono); font-size: 11px; letter-spacing:.2em;
+  text-transform: uppercase; color: var(--bone);
+}
+.test-head .meta .stars{ color: var(--gold);}
+.test-head .meta .num{
+  display:block; font-family: var(--display); font-style: italic;
+  font-size: 56px; color: var(--gold-2); letter-spacing: 0; text-transform:none;
+  margin-top: 8px; line-height:1;
+}
+.test-grid{
+  display:grid; grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+.tcard{
+  border: 1px solid var(--line-soft);
+  padding: 40px 34px;
+  background: var(--ink);
+  position: relative;
+  display:flex; flex-direction:column; gap: 22px;
+}
+.tcard .quote-mark{
+  font-family: var(--display); font-style: italic;
+  font-size: 80px; color: var(--gold);
+  line-height: .6; height: 32px;
+}
+.tcard p{
+  font-family: var(--display); font-weight: 350;
+  font-style: italic; font-variation-settings: "opsz" 144, "SOFT" 100;
+  font-size: 22px; line-height: 1.45;
+  color: var(--paper);
+  letter-spacing: -.01em;
+}
+.tcard .who{
+  margin-top: auto; padding-top: 24px;
+  border-top: 1px solid var(--line-soft);
+  display:flex; justify-content:space-between; align-items:center;
+}
+.tcard .who .name{
+  font-family: var(--mono); font-size: 11px; letter-spacing:.2em;
+  text-transform: uppercase; color: var(--paper);
+}
+.tcard .who .role{
+  font-family: var(--mono); font-size: 10px; letter-spacing:.2em;
+  text-transform: uppercase; color: var(--bone); margin-top: 4px;
+}
+.tcard .stars{ color: var(--gold); letter-spacing:.2em; font-family: var(--mono); font-size: 11px;}
+
+/* ============================================================
+   FAQ
+   ============================================================ */
+.faq{ padding: 140px 0; }
+.faq-grid{
+  display:grid; grid-template-columns: 5fr 7fr;
+  gap: 80px; align-items: start;
+}
+.faq-side h2{
+  font-size: clamp(40px, 5vw, 80px);
+  margin: 22px 0 24px;
+}
+.faq-side h2 em{ color: var(--gold-2);}
+.faq-list{ display:flex; flex-direction:column;}
+details{
+  border-bottom: 1px solid var(--line-soft);
+  padding: 28px 0;
+  cursor: pointer;
+}
+details:first-child{ border-top: 1px solid var(--line);}
+details summary{
+  list-style: none;
+  display:flex; justify-content: space-between; align-items:center;
+  font-family: var(--display); font-weight: 400;
+  font-size: clamp(20px, 1.6vw, 24px);
+  color: var(--paper);
+  transition: color .25s ease;
+}
+details summary::-webkit-details-marker{ display:none;}
+details summary .pl{
+  width: 22px; height: 22px; position:relative; flex-shrink:0;
+  margin-left: 24px;
+}
+details summary .pl::before, details summary .pl::after{
+  content:""; position:absolute; background: var(--gold);
+  transition: transform .35s ease;
+}
+details summary .pl::before{ left:0; right:0; top:50%; height:1px; transform: translateY(-.5px);}
+details summary .pl::after{ top:0; bottom:0; left:50%; width:1px; transform: translateX(-.5px);}
+details[open] summary{ color: var(--gold-2);}
+details[open] summary .pl::after{ transform: translateX(-.5px) rotate(90deg);}
+details .ans{
+  padding-top: 18px;
+  color: rgba(242,232,213,.72);
+  font-size: 15px; line-height: 1.7;
+  max-width: 64ch;
+}
+
+/* ============================================================
+   PROMISE / NEWSLETTER
+   ============================================================ */
+.promise{
+  padding: 140px 0 100px;
+  background:
+    radial-gradient(60% 60% at 50% 0%, rgba(201,162,74,.18), transparent 70%),
+    linear-gradient(180deg, #100C08, var(--ink));
+  border-top: 1px solid var(--line-soft);
+  text-align:center;
+  position: relative;
+  overflow:hidden;
+}
+.promise::before{
+  content:""; position:absolute; left:50%; top:30px;
+  transform: translateX(-50%);
+  width: 1px; height: 60px; background: var(--gold);
+}
+.promise h2{
+  font-size: clamp(48px, 7vw, 130px);
+  max-width: 14ch; margin: 30px auto 30px;
+  line-height: 1;
+}
+.promise h2 em{ color: var(--gold-2);}
+.promise p{
+  max-width: 56ch; margin: 0 auto 40px;
+  font-size: 16px; color: rgba(242,232,213,.75); line-height: 1.65;
+}
+.news-form{
+  display:flex; gap: 8px; max-width: 520px; margin: 0 auto;
+  border: 1px solid var(--line);
+  border-radius: 999px; padding: 6px;
+  background: rgba(11,9,7,.6);
+}
+.news-form input{
+  flex:1; background: transparent; border:none; outline:none;
+  color: var(--paper); padding: 14px 20px;
+  font-family: var(--mono); font-size: 12px; letter-spacing: .12em;
+}
+.news-form input::placeholder{ color: rgba(242,232,213,.45); text-transform: uppercase; letter-spacing:.2em;}
+.news-form button{
+  padding: 12px 22px;
+  background: var(--gold); color: var(--ink);
+  border-radius: 999px;
+  font-family: var(--mono); font-size: 11px; letter-spacing:.24em;
+  text-transform: uppercase;
+  transition: background .3s ease;
+}
+.news-form button:hover{ background: var(--gold-2);}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+footer{
+  background: var(--ink-2);
+  border-top: 1px solid var(--line-soft);
+  padding: 80px 0 30px;
+}
+.foot-grid{
+  display:grid;
+  grid-template-columns: 2.5fr 1fr 1fr 1fr;
+  gap: 60px;
+  margin-bottom: 80px;
+}
+.foot-brand .brand{
+  align-items:flex-start; text-align:left; font-size: 28px; margin-bottom: 22px;
+}
+.foot-brand p{
+  color: rgba(242,232,213,.6);
+  font-size: 14px; line-height: 1.7; max-width: 38ch;
+}
+.foot-col h5{
+  font-family: var(--mono); font-size: 11px; letter-spacing:.24em;
+  text-transform: uppercase; color: var(--gold); margin-bottom: 22px;
+}
+.foot-col a{
+  display:block; padding: 7px 0;
+  font-size: 14px; color: rgba(242,232,213,.7);
+  transition: color .25s ease, transform .25s ease;
+}
+.foot-col a:hover{ color: var(--gold-2); transform: translateX(4px);}
+.foot-bottom{
+  display:flex; justify-content: space-between; align-items:center;
+  padding-top: 30px; border-top: 1px solid var(--line-soft);
+  font-family: var(--mono); font-size: 10px; letter-spacing:.22em;
+  text-transform: uppercase; color: rgba(242,232,213,.5);
+}
+.foot-bottom .pay{ display:flex; gap: 16px; align-items:center;}
+.foot-bottom .pay span{
+  padding: 6px 10px; border: 1px solid var(--line-soft); border-radius: 4px;
+  color: var(--bone);
+}
+
+/* word mark giant */
+.giant{
+  font-family: var(--display); font-weight: 300;
+  font-variation-settings: "opsz" 144, "SOFT" 100;
+  font-style: italic;
+  font-size: clamp(80px, 18vw, 280px);
+  line-height: .85;
+  letter-spacing: -.04em;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(201,162,74,.25);
+  text-stroke: 1px rgba(201,162,74,.25);
+  text-align:center;
+  margin: 30px 0 0;
+  user-select:none;
+  pointer-events:none;
+}
+
+/* ============================================================
+   STICKY BUY BAR
+   ============================================================ */
+.buybar{
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 60;
+  background: rgba(11,9,7,.92);
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  border-top: 1px solid var(--line);
+  transform: translateY(110%);
+  transition: transform .55s cubic-bezier(.2,.7,.2,1);
+}
+.buybar.show{ transform: translateY(0); }
+.buybar-row{
+  display:flex; justify-content:space-between; align-items:center;
+  padding: 14px 0; gap: 24px;
+}
+.buybar-prod{ display:flex; align-items:center; gap: 16px; min-width: 0;}
+.buybar-prod img{
+  width: 52px; height: 52px; object-fit: contain;
+  filter: drop-shadow(0 6px 14px rgba(0,0,0,.6));
+}
+.buybar-meta{ display:flex; flex-direction: column; gap: 2px; min-width: 0;}
+.buybar-meta strong{
+  font-family: var(--display); font-weight: 400;
+  font-size: 17px; color: var(--paper);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.buybar-meta span{
+  font-family: var(--mono); font-size: 10px; letter-spacing: .18em;
+  text-transform: uppercase; color: var(--bone);
+}
+.buybar-cta{ display:flex; align-items:center; gap: 18px; flex-shrink: 0;}
+.buybar-price{
+  font-family: var(--display); font-weight: 400;
+  font-size: 22px; color: var(--gold-2);
+  font-style: italic;
+  font-variation-settings: "opsz" 144, "SOFT" 100;
+}
+.buybar .btn{ padding: 14px 22px;}
+
+/* ============================================================
+   SOCIAL PROOF TOAST
+   ============================================================ */
+.toast{
+  position: fixed; left: 24px; bottom: 100px; z-index: 55;
+  display:flex; gap: 14px; align-items: flex-start;
+  padding: 16px 20px 16px 18px;
+  background: rgba(20,16,11,.95);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  max-width: 320px;
+  box-shadow: 0 20px 50px -10px rgba(0,0,0,.6);
+  transform: translateX(-130%);
+  transition: transform .55s cubic-bezier(.2,.7,.2,1);
+  pointer-events: none;
+}
+.toast.show{ transform: translateX(0);}
+.toast-dot{
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--gold);
+  margin-top: 6px; flex-shrink: 0;
+  box-shadow: 0 0 0 4px rgba(201,162,74,.15);
+  animation: pulse 2s ease-in-out infinite;
+}
+@keyframes pulse{
+  50%{ box-shadow: 0 0 0 8px rgba(201,162,74,.05);}
+}
+.toast-text{
+  font-family: var(--mono); font-size: 11px; letter-spacing: .08em;
+  color: rgba(242,232,213,.85); line-height: 1.5;
+}
+.toast-text strong{
+  color: var(--paper); font-family: var(--body);
+  font-weight: 600; font-size: 13px; letter-spacing: 0;
+}
+.toast-action{ color: var(--gold-2);}
+.toast-time{
+  display:block; margin-top: 4px;
+  color: rgba(242,232,213,.45); font-size: 10px; letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+/* ============================================================
+   COMPARISON
+   ============================================================ */
+.compare{
+  padding: 140px 0;
+  background: linear-gradient(180deg, var(--ink), #0F0B07 50%, var(--ink));
+  border-top: 1px solid var(--line-soft);
+}
+.compare-head{
+  text-align: center; max-width: 720px; margin: 0 auto 70px;
+}
+.compare-head .eyebrow{ display:inline-block; margin-bottom: 22px;}
+.compare-head h2{
+  font-size: clamp(44px, 6vw, 96px);
+  margin-bottom: 26px;
+}
+.compare-head .lead{ margin: 0 auto;}
+
+.compare-grid{
+  display:grid; grid-template-columns: 1fr auto 1fr;
+  gap: 0;
+  align-items: stretch;
+  border: 1px solid var(--line-soft);
+}
+.compare-col{
+  padding: 50px 44px;
+  background: var(--ink);
+}
+.compare-col.good{
+  background:
+    linear-gradient(135deg, rgba(201,162,74,.08), transparent 60%),
+    var(--ink-2);
+  border-left: 1px solid var(--gold);
+}
+.compare-tag{
+  display:inline-block;
+  font-family: var(--mono); font-size: 10px; letter-spacing: .26em;
+  text-transform: uppercase; color: var(--bone);
+  padding: 6px 14px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  margin-bottom: 20px;
+}
+.compare-tag.good{ color: var(--gold); border-color: var(--gold);}
+.compare-col h3{
+  font-family: var(--display); font-weight: 400;
+  font-size: clamp(28px, 3.2vw, 40px);
+  letter-spacing: -.015em;
+  margin-bottom: 32px;
+}
+.compare-col.bad h3{ color: rgba(242,232,213,.55);}
+.compare-col.good h3{ color: var(--paper);}
+.compare-col.good h3{
+  font-style: italic;
+  font-variation-settings: "opsz" 144, "SOFT" 100;
+  color: var(--gold-2);
+}
+.compare-col ul{ list-style: none;}
+.compare-col li{
+  display:flex; align-items: flex-start; gap: 14px;
+  padding: 14px 0;
+  border-bottom: 1px dashed var(--line-soft);
+  font-size: 15px; line-height: 1.5;
+}
+.compare-col.bad li{ color: rgba(242,232,213,.55);}
+.compare-col.good li{ color: var(--paper);}
+.compare-col li:last-child{ border-bottom: none;}
+.compare-col li .x, .compare-col li .ok{
+  flex-shrink: 0;
+  width: 22px; height: 22px;
+  display:inline-flex; align-items:center; justify-content:center;
+  border-radius: 50%;
+  font-size: 13px; font-weight: 600;
+  margin-top: 1px;
+}
+.compare-col li .x{
+  background: rgba(107,58,26,.25);
+  color: rgba(242,232,213,.55);
+  border: 1px solid rgba(107,58,26,.4);
+}
+.compare-col li .ok{
+  background: rgba(201,162,74,.18);
+  color: var(--gold-2);
+  border: 1px solid var(--gold);
+}
+.compare-vs{
+  display:flex; align-items:center; justify-content:center;
+  width: 80px;
+  position: relative;
+  background: var(--ink);
+}
+.compare-vs span{
+  width: 56px; height: 56px;
+  border-radius: 50%;
+  border: 1px solid var(--gold);
+  display:flex; align-items:center; justify-content:center;
+  font-family: var(--display); font-style: italic;
+  font-size: 22px; color: var(--gold-2);
+  background: var(--ink);
+  box-shadow: 0 0 0 6px var(--ink), 0 0 30px rgba(201,162,74,.2);
+}
+
+/* ============================================================
+   reveal animations
+   ============================================================ */
+[data-rev]{ opacity:0; transform: translateY(28px); transition: opacity 1s cubic-bezier(.2,.7,.2,1), transform 1s cubic-bezier(.2,.7,.2,1);}
+[data-rev].in{ opacity:1; transform: none;}
+[data-rev][data-d="1"]{ transition-delay: .08s;}
+[data-rev][data-d="2"]{ transition-delay: .16s;}
+[data-rev][data-d="3"]{ transition-delay: .24s;}
+[data-rev][data-d="4"]{ transition-delay: .32s;}
+[data-rev][data-d="5"]{ transition-delay: .4s;}
+
+/* ============================================================
+   responsive
+   ============================================================ */
+/* ============================================================
+   responsive — TABLET
+   ============================================================ */
+@media (max-width: 1024px){
+  :root{ --gutter: clamp(18px, 4vw, 32px); }
+  .hero-bottom{ grid-template-columns: 1fr; gap: 40px;}
+  .origin-grid{ grid-template-columns: 1fr; gap: 50px;}
+  .product-head{ grid-template-columns: 1fr;}
+  .product-head .lead{ justify-self: start;}
+  .product-grid{ grid-template-columns: 1fr; gap: 60px;}
+  .benefits-head{ grid-template-columns: 1fr;}
+  .bcell.span4, .bcell.span6, .bcell.span8{ grid-column: span 12;}
+  .bcell[style*="span 3"]{ grid-column: span 6 !important;}
+  .steps{ grid-template-columns: repeat(2, 1fr); gap: 50px;}
+  .steps::before{ display:none;}
+  .lab-grid{ grid-template-columns: 1fr; gap: 60px;}
+  .test-grid{ grid-template-columns: 1fr 1fr;}
+  .faq-grid{ grid-template-columns: 1fr; gap: 50px;}
+  .foot-grid{ grid-template-columns: 1fr 1fr; gap: 50px;}
+  .nav-row{ grid-template-columns: auto 1fr auto;}
+  .nav-left, .nav-right > a{ display:none;}
+  .nav-right{ gap: 16px;}
+  .seal{ display:none;}
+  .compare-grid{ grid-template-columns: 1fr; }
+  .compare-vs{ width: 100%; padding: 24px 0; border-top: 1px solid var(--line-soft); border-bottom: 1px solid var(--line-soft);}
+  .compare-col.good{ border-left: none; border-top: 1px solid var(--gold);}
+  .toast{ display: none;}
+}
+
+/* ============================================================
+   responsive — PHONE
+   ============================================================ */
+@media (max-width: 640px){
+  :root{ --gutter: 18px; }
+  body{ font-size: 15px; }
+
+  /* announcement bar smaller, gentler */
+  .bar{ font-size: 9px; letter-spacing: .18em;}
+  .bar-track{ gap: 36px; padding: 9px 0;}
+
+  /* nav: tighter, smaller brand */
+  .nav-row{ padding: 14px 0; gap: 10px;}
+  .nav a{ font-size: 10px; letter-spacing: .18em;}
+  .brand{ font-size: 14px; letter-spacing: .25em;}
+  .brand .sub{ font-size: 7px; letter-spacing: .3em;}
+  .cart{ padding: 7px 11px; font-size: 10px;}
+  .cart .num{ display:none;}
+
+  /* HERO — mobile rebuild */
+  .hero{ padding: 28px 0 50px; min-height: auto;}
+  .hero-grid{ gap: 32px; min-height: 0;}
+  /* keep the hero background but dim it heavily so it sits behind text */
+  .hero-mountain{
+    opacity: .18;
+    background-position: center 40%;
+    mask-image: linear-gradient(180deg, transparent 0%, #000 25%, #000 75%, transparent 100%);
+    -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 25%, #000 75%, transparent 100%);
+  }
+  .hero::after{
+    content:""; position:absolute; inset:0; z-index:-1; pointer-events:none;
+    background: linear-gradient(180deg, rgba(11,9,7,.4) 0%, rgba(11,9,7,.1) 35%, rgba(11,9,7,.1) 65%, rgba(11,9,7,.5) 100%);
+  }
+  /* hero-meta — centered single row */
+  .hero-meta{
+    display: flex; flex-direction: row; flex-wrap: wrap;
+    gap: 14px; justify-content: center; align-items: center;
+    padding-bottom: 18px;
+    font-size: 9px; letter-spacing: .22em;
+    text-align: center;
+  }
+  .hero-meta .l{ flex-direction: row; gap: 14px; flex-wrap: wrap; justify-content: center;}
+  .hero-meta .l span:nth-child(2){ display: none;}
+  .hero-meta > div:last-child{ display: none;}
+
+  /* center the entire hero column on mobile */
+  .hero-headline{ gap: 20px; text-align: center; align-items: center;}
+  .hero-headline .eyebrow{ display:block; margin-bottom: 4px;}
+  .hero-headline h1{
+    font-size: clamp(46px, 15vw, 72px);
+    letter-spacing: -.03em;
+    line-height: .95;
+    text-align: center;
+  }
+  .hero-headline h1 .row.mid{ gap: 12px; padding: 4px 0; justify-content: center;}
+  .hero-headline h1 .row.mid::after{ display: none;}
+
+  .hero-bottom{ padding-top: 26px; gap: 28px; text-align: center;}
+  .hero-tag{
+    font-size: 16px; line-height: 1.5; max-width: 38ch;
+    margin: 0 auto;
+  }
+  .hero-cta{
+    width: 100%; gap: 12px; align-items: center;
+  }
+  .hero-cta .btn{ width: 100%; justify-content: center; padding: 18px 20px;}
+  .hero-cta .price{ font-size: 10px; letter-spacing: .2em; text-align: center;}
+  .hero-cta .price .num{ font-size: 12px;}
+
+  .hero-stats{ gap: 10px; text-align: left;}
+  .hero-stats .row{ padding-bottom: 12px; font-size: 10px;}
+  .hero-stats .row b{ font-size: 18px;}
+
+  /* trust marquee */
+  .trust{ padding: 18px 0;}
+  .trust-track{ gap: 50px;}
+  .trust-track .item{ font-size: 18px;}
+  .trust-track .item .ico{ width: 18px; height: 18px; font-size: 9px;}
+
+  /* universal section padding */
+  .origin, .product, .benefits, .ritual, .lab, .test, .faq, .compare, .brothers{
+    padding: 70px 0 70px;
+  }
+  .promise{ padding: 80px 0 60px;}
+
+  /* origin */
+  .origin-image{ aspect-ratio: 4 / 5;}
+  .origin-text h2{ margin: 16px 0 22px;}
+  .origin-meta{
+    grid-template-columns: 1fr 1fr;
+    gap: 20px; padding-top: 28px; margin-top: 36px;
+  }
+  .origin-meta .cell .num{ font-size: 36px;}
+  .origin-meta .cell .lab{ font-size: 9px;}
+
+  /* brothers */
+  .brothers-image{ aspect-ratio: 4 / 5;}
+  .brothers-text h2{ margin: 16px 0 24px;}
+  .brothers-copy p{ font-size: 16px; line-height: 1.55;}
+  .brothers-copy p.closer{ font-size: 18px;}
+  .brothers-cta{ gap: 18px; flex-direction: column; align-items: stretch;}
+  .brothers-cta .btn{ width: 100%; justify-content: center;}
+
+  /* product */
+  .product-head{ margin-bottom: 40px;}
+  .product-stage{ aspect-ratio: 1 / 1;}
+  .product-stage.real{ padding: 14% 18%;}
+  .hot{ font-size: 8.5px; letter-spacing: .18em;}
+  .hot .num{ width: 22px; height: 22px;}
+  .hot .line{ width: 30px;}
+  .hot.h1{ top: 12%; left: 4%;}
+  .hot.h2{ top: 50%; left: 2%;}
+  .hot.h3{ top: 12%; right: 4%;}
+  .hot.h4{ bottom: 14%; right: 4%;}
+  .product-info h3{ font-size: 24px;}
+  .product-info .copy{ font-size: 15px;}
+  .product-spec{ grid-template-columns: 1fr; margin: 22px 0 28px;}
+  .product-spec .row{ padding: 13px 0; font-size: 10px;}
+  .product-spec .row:nth-child(odd){ border-right: none; padding-right: 0;}
+  .product-spec .row:nth-child(even){ padding-left: 0;}
+  .cta-row{ flex-direction: column; align-items: stretch; gap: 10px;}
+  .cta-row .btn{ width: 100%; justify-content: center;}
+  .qty{ align-self: center;}
+  .assurances{ grid-template-columns: 1fr; gap: 10px; margin-top: 22px;}
+
+  /* compare */
+  .compare-head{ margin-bottom: 40px;}
+  .compare-col{ padding: 32px 22px;}
+  .compare-col h3{ font-size: 24px; margin-bottom: 22px;}
+  .compare-col li{ font-size: 14px; padding: 12px 0;}
+  .compare-vs{ padding: 18px 0;}
+  .compare-vs span{ width: 46px; height: 46px; font-size: 18px;}
+
+  /* benefits */
+  .benefits-head{ gap: 30px; margin-bottom: 40px;}
+  .bgrid{ grid-template-columns: 1fr;}
+  .bcell, .bcell.span4, .bcell.span6, .bcell.span8, .bcell[style*="span 3"]{
+    grid-column: span 1 !important;
+    min-height: auto; padding: 32px 24px;
+  }
+  .bcell h3{ font-size: 22px;}
+  .bcell.feature h3{ font-size: 28px;}
+
+  /* ritual */
+  .ritual-head{ margin-bottom: 50px;}
+  .steps{ grid-template-columns: 1fr; gap: 36px;}
+  .step .circ{ width: 56px; height: 56px; font-size: 22px; margin-bottom: 18px;}
+  .step h4{ font-size: 19px; margin-bottom: 10px;}
+
+  /* lab */
+  .lab-text h2{ margin: 16px 0 22px;}
+  .lab-list .row{ grid-template-columns: 36px 1fr auto; gap: 12px; padding: 16px 0;}
+  .lab-list .row .name{ font-size: 16px;}
+  .lab-list .row .val{ font-size: 9px;}
+  .cert{ aspect-ratio: 4 / 5; padding: 22px;}
+
+  /* testimonials */
+  .test-head{ flex-direction: column; align-items: flex-start; gap: 24px; margin-bottom: 40px;}
+  .test-head .meta .num{ font-size: 38px;}
+  .test-grid{ grid-template-columns: 1fr; gap: 18px;}
+  .tcard{ padding: 30px 24px; gap: 16px;}
+  .tcard p{ font-size: 18px;}
+
+  /* faq */
+  .faq-side h2{ margin: 16px 0 18px;}
+  details{ padding: 22px 0;}
+  details summary{ font-size: 17px;}
+  details .ans{ font-size: 14.5px;}
+
+  /* promise */
+  .promise h2{ font-size: clamp(40px, 12vw, 64px); margin: 22px auto 22px;}
+  .promise p{ font-size: 15px; margin-bottom: 28px;}
+  .news-form{ flex-direction: column; padding: 8px; border-radius: 14px; gap: 8px;}
+  .news-form input{ width: 100%; padding: 12px 16px; text-align: center;}
+  .news-form button{ width: 100%; padding: 14px;}
+  .giant{ font-size: 20vw;}
+
+  /* footer */
+  .foot-grid{ grid-template-columns: 1fr; gap: 36px; margin-bottom: 40px;}
+  .foot-bottom{ flex-direction: column; gap: 18px; text-align:center;}
+  .foot-brand .brand{ font-size: 22px;}
+  .foot-col h5{ margin-bottom: 14px;}
+
+  /* sticky buy bar — ALWAYS show price + CTA, drop everything else */
+  .buybar-row{ padding: 10px 0; gap: 10px;}
+  .buybar-prod{ gap: 10px;}
+  .buybar-prod img{ width: 36px; height: 36px;}
+  .buybar-meta{ display: none;}
+  .buybar-cta{ flex: 1; justify-content: space-between; gap: 10px;}
+  .buybar-price{ font-size: 15px;}
+  .buybar .btn{ padding: 11px 14px; font-size: 9px; gap: 8px;}
+  .buybar .btn .arr{ display: none;}
+  /* lift bottom-bar offset for last section so content isn't hidden */
+  footer{ padding-bottom: 90px;}
+
+  /* big display rules — keep typographic drama tight */
+  .display{ letter-spacing: -.02em;}
+  .product-head h2,
+  .origin-text h2,
+  .lab-text h2,
+  .brothers-text h2,
+  .test-head h2,
+  .faq-side h2{ font-size: clamp(36px, 10vw, 56px);}
+  .benefits-head h2,
+  .ritual-head h2,
+  .compare-head h2{ font-size: clamp(38px, 11vw, 64px);}
+}
+</style>
+</head>
+<body>
+
+<!-- ============================== STICKY BUY BAR ============================== -->
+<div class="buybar" id="buybar" aria-hidden="true">
+  <div class="wrap buybar-row">
+    <div class="buybar-prod">
+      <img src="https://atlasgoldshilajit.com/cdn/shop/files/Jar_and_Box_Transparent_-_1200_x_1200_a5aba170-e13f-4336-8e48-a4f264dd5896.png" alt="" />
+      <div class="buybar-meta">
+        <strong>Atlas Gold — Pure Resin</strong>
+        <span>30g · 60 servings · ★ 4.9 / 5</span>
+      </div>
+    </div>
+    <div class="buybar-cta">
+      <span class="buybar-price">$89.99 AUD</span>
+      <a href="#product" class="btn">Pre-order now <span class="arr"></span></a>
+    </div>
+  </div>
+</div>
+
+<!-- ============================== SOCIAL PROOF TOAST ============================== -->
+<div class="toast" id="toast" aria-live="polite">
+  <div class="toast-dot"></div>
+  <div class="toast-text">
+    <strong id="toast-name">Aisha N.</strong> from <span id="toast-place">Stockholm</span><br/>
+    <span class="toast-action" id="toast-action">just reserved a jar</span>
+    <span class="toast-time" id="toast-time">2 min ago</span>
+  </div>
+</div>
+
+<!-- ============================== ANNOUNCEMENT ============================== -->
+<div class="bar">
+  <div class="bar-track">
+    <span><span class="star">✦</span> Free shipping over $100 AUD</span>
+    <span><span class="star">✦</span> Harvested above 18,000ft · Gilgit–Baltistan</span>
+    <span><span class="star">✦</span> 85+ minerals · Zero fillers</span>
+    <span><span class="star">✦</span> Third-party lab tested</span>
+    <span><span class="star">✦</span> 30-day guarantee</span>
+    <span><span class="star">✦</span> Free shipping over $100 AUD</span>
+    <span><span class="star">✦</span> Harvested above 18,000ft · Gilgit–Baltistan</span>
+    <span><span class="star">✦</span> 85+ minerals · Zero fillers</span>
+    <span><span class="star">✦</span> Third-party lab tested</span>
+    <span><span class="star">✦</span> 30-day guarantee</span>
+  </div>
+</div>
+
+<!-- ============================== NAV ============================== -->
+<header class="nav">
+  <div class="wrap nav-row">
+    <nav class="nav-left">
+      <a href="#origin">Origin</a>
+      <a href="#product">The Resin</a>
+      <a href="#brothers">Founders</a>
+      <a href="#lab">Lab</a>
+    </nav>
+    <a href="#" class="brand">
+      ATLAS&nbsp;GOLD
+      <span class="sub">— EST. SHILAJIT CO. —</span>
+    </a>
+    <div class="nav-right">
+      <a href="#faq">Journal</a>
+      <a href="#" aria-label="Account">Account</a>
+      <a href="#" class="cart">Bag <span class="num">(0)</span></a>
+    </div>
+  </div>
+</header>
+
+<!-- ============================== HERO ============================== -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-mountain"></div>
+  <div class="wrap hero-grid">
+
+    <div class="hero-meta" data-rev>
+      <div class="l">
+        <span>● LIVE</span>
+        <span>Gilgit–Baltistan · Himalayas</span>
+        <span>Altitude · 5,486 m</span>
+      </div>
+      <div>Pure Resin Edition · MMXXVI</div>
+    </div>
+
+    <div class="hero-headline">
+      <span class="eyebrow" data-rev><span class="dot"></span>Pure Himalayan Shilajit Resin</span>
+
+      <h1 class="display" data-rev data-d="1">
+        <span class="row">MORE&nbsp;ENERGY.</span>
+        <span class="row mid"><em>deeper</em></span>
+        <span class="row">FOCUS.</span>
+      </h1>
+
+      <!-- circular seal -->
+      <div class="seal" aria-hidden="true">
+        <svg viewBox="0 0 200 200">
+          <defs>
+            <path id="circ" d="M100,100 m-80,0 a80,80 0 1,1 160,0 a80,80 0 1,1 -160,0" />
+          </defs>
+          <text font-family="JetBrains Mono" font-size="13" fill="#C9A24A" letter-spacing="6">
+            <textPath href="#circ">SOURCED · TESTED · TRUSTED · SINCE 2019 · </textPath>
+          </text>
+        </svg>
+        <div class="center">A</div>
+      </div>
+    </div>
+
+    <div class="hero-bottom">
+      <p class="hero-tag" data-rev data-d="2">
+        <em>85+ minerals.</em> Zero fillers. Thousands of years of natural alchemy, bottled by two brothers who hand-check every jar.
+      </p>
+
+      <div class="hero-cta" data-rev data-d="3">
+        <a href="#product" class="btn">Pre-order yours <span class="arr"></span></a>
+        <span class="price"><span class="num">$89.99 AUD</span> &nbsp;·&nbsp; 30g resin · 4–6 week supply</span>
+      </div>
+
+      <div class="hero-stats" data-rev data-d="4">
+        <div class="row"><span>Essential minerals</span><b>85+</b></div>
+        <div class="row"><span>Customer rating</span><b>4.9 / 5</b></div>
+        <div class="row"><span>Recommend Atlas</span><b>98%</b></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================== TRUST MARQUEE ============================== -->
+<div class="trust">
+  <div class="trust-track">
+    <span class="item">As seen in <span class="ico">V</span> Vogue</span>
+    <span class="item">Featured by <span class="ico">M</span> Men's Health</span>
+    <span class="item">Reviewed in <span class="ico">G</span> GQ</span>
+    <span class="item">Trusted by <span class="ico">A</span> Athletes worldwide</span>
+    <span class="item">Verified by <span class="ico">L</span> Eurofins Labs</span>
+    <span class="item">As seen in <span class="ico">V</span> Vogue</span>
+    <span class="item">Featured by <span class="ico">M</span> Men's Health</span>
+    <span class="item">Reviewed in <span class="ico">G</span> GQ</span>
+    <span class="item">Trusted by <span class="ico">A</span> Athletes worldwide</span>
+    <span class="item">Verified by <span class="ico">L</span> Eurofins Labs</span>
+  </div>
+</div>
+
+<!-- ============================== BUILT BY BROTHERS ============================== -->
+<section class="brothers" id="brothers">
+  <div class="wrap brothers-grid">
+    <figure class="brothers-image" data-rev>
+      <img src="https://atlasgoldshilajit.com/cdn/shop/files/IMG_1057.jpg" alt="The Atlas Gold founders — two brothers" />
+      <figcaption>
+        <span class="line"></span>
+        <span class="cap">The founders · Gilgit–Baltistan, 2024</span>
+      </figcaption>
+    </figure>
+
+    <div class="brothers-text">
+      <span class="eyebrow" data-rev><span class="dot"></span>Our Story</span>
+      <h2 class="display" data-rev data-d="1">Built by <em>Brothers.</em></h2>
+
+      <div class="brothers-copy" data-rev data-d="2">
+        <p>We tried shilajit from health stores, online brands, anywhere that looked reputable. We were both serious about our health — so we kept giving it a fair shot. Nothing moved the needle.</p>
+        <p>The more we dug into <em>why</em>, the clearer it became. What we were buying wasn't bad shilajit. It was barely shilajit at all — powdered, diluted, and packaged to look premium while protecting a margin.</p>
+        <p>So we stopped buying and went to the source. Gilgit–Baltistan. Direct relationships with harvesters above 18,000ft. Pure resin, exactly as the mountain made it.</p>
+        <p class="closer">The difference was immediate. <em>Atlas Gold is what we were looking for before we built it.</em></p>
+      </div>
+
+      <div class="brothers-cta" data-rev data-d="3">
+        <a href="#product" class="btn">Reserve my jar <span class="arr"></span></a>
+        <div class="signed">
+          <span class="sig-line">— signed,</span>
+          <span class="sig-name">The brothers</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== ORIGIN ============================== -->
+<section class="origin" id="origin">
+  <div class="wrap origin-grid">
+    <figure class="origin-image" data-rev>
+      <img src="https://atlasgoldshilajit.com/cdn/shop/files/Why_Atlas_Gold_1200x1200_edc2103a-f1d7-4115-8e19-c5fd87e57e49.png" alt="Atlas Gold — sourcing in the Himalayas" />
+      <span class="tag">Plate I — Gilgit–Baltistan, Himalayas</span>
+    </figure>
+
+    <div class="origin-text">
+      <span class="eyebrow" data-rev><span class="dot"></span>Chapter One — The Origin</span>
+      <h2 class="display" data-rev data-d="1">
+        Formed by <em>stone</em>,<br/>aged by silence.
+      </h2>
+      <p class="lead" data-rev data-d="2">
+        Shilajit is a rare mineral resin formed over thousands of years, as ancient plant matter transforms under extreme pressure deep within Himalayan rock. Rich in fulvic acid, humic compounds, and over 85 essential minerals.
+      </p>
+      <p class="lead" data-rev data-d="3">
+        Atlas Gold is harvested exclusively above 18,000ft in Gilgit–Baltistan, kept in its 100% pure resin form — never powdered, never diluted — and founded by two brothers who take every jar personally.
+      </p>
+
+      <div class="origin-meta" data-rev data-d="4">
+        <div class="cell"><span class="num">18,000ft</span><span class="lab">Harvest altitude</span></div>
+        <div class="cell"><span class="num">85+</span><span class="lab">Essential minerals</span></div>
+        <div class="cell"><span class="num">02</span><span class="lab">Brothers · every jar</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== PRODUCT ============================== -->
+<section class="product" id="product">
+  <div class="wrap">
+
+    <div class="product-head">
+      <h2 class="display" data-rev>
+        The <em>resin</em><br/>itself.
+      </h2>
+      <p class="lead" data-rev data-d="1">
+        Glossy. Bitter. Mineral-dense. A pea-sized portion (300–500mg) dissolves into warm water, coffee or milk — releasing 85+ trace minerals and high fulvic acid. This is shilajit in its purest form. No powder, no dilution, no compromise.
+      </p>
+    </div>
+
+    <div class="product-grid">
+      <div class="product-stage real" data-rev>
+        <img class="prod-img" src="https://atlasgoldshilajit.com/cdn/shop/files/Jar_and_Box_Transparent_-_1200_x_1200_a5aba170-e13f-4336-8e48-a4f264dd5896.png" alt="Atlas Gold Shilajit jar and box" />
+        <span class="hot h1"><span class="num">01</span><span class="line"></span>Hand-harvested 18,000ft</span>
+        <span class="hot h2"><span class="num">02</span><span class="line"></span>100% pure resin</span>
+        <span class="hot h3 right"><span class="num">03</span><span class="line"></span>Free metal spoon</span>
+        <span class="hot h4 right"><span class="num">04</span><span class="line"></span>30g · 60 servings</span>
+      </div>
+
+      <div class="product-info">
+        <span class="eyebrow" data-rev><span class="dot"></span>Pre-Order · Restocking in 1 Week</span>
+        <h3 data-rev data-d="1">Atlas Gold — Pure Himalayan Shilajit Resin</h3>
+        <div class="stars" data-rev data-d="2">
+          <span class="s">★★★★★</span> &nbsp; 4.9 / 5 · 98% recommend
+        </div>
+        <p class="copy" data-rev data-d="3">
+          A premium, third-party lab-tested resin harvested above 18,000ft in Gilgit–Baltistan. Each batch arrives in its 100% pure resin form, with a complimentary premium metal spoon — everything you need for a one-minute morning ritual.
+        </p>
+
+        <div class="product-spec" data-rev data-d="4">
+          <div class="row"><span>Format</span><b>Pure resin</b></div>
+          <div class="row"><span>Weight</span><b>30 g</b></div>
+          <div class="row"><span>Servings</span><b>~60</b></div>
+          <div class="row"><span>Supply</span><b>4–6 weeks</b></div>
+          <div class="row"><span>Origin</span><b>Gilgit–Baltistan</b></div>
+          <div class="row"><span>Includes</span><b>Metal spoon</b></div>
+        </div>
+
+        <div class="cta-row" data-rev data-d="5">
+          <div class="qty"><button>−</button><span class="v">1</span><button>+</button></div>
+          <a href="#" class="btn">Pre-order — $89.99 AUD <span class="arr"></span></a>
+          <a href="#" class="btn btn-ghost">Notify when restocked</a>
+        </div>
+
+        <div class="assurances" data-rev data-d="5">
+          <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12l4 4 10-10"/></svg> Lab-verified</div>
+          <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2v20M2 12h20"/></svg> Carbon-neutral</div>
+          <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-5"/></svg> 60-day promise</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== COMPARISON ============================== -->
+<section class="compare">
+  <div class="wrap">
+    <div class="compare-head">
+      <span class="eyebrow" data-rev><span class="dot"></span>Most shilajit isn't really shilajit</span>
+      <h2 class="display" data-rev data-d="1">The <em>difference</em><br/>is in the resin.</h2>
+      <p class="lead" data-rev data-d="2">
+        Powders, capsules, and "extracts" are everywhere — and almost none of them are pure shilajit. Here's what we found, and why we built Atlas Gold.
+      </p>
+    </div>
+
+    <div class="compare-grid" data-rev data-d="1">
+      <div class="compare-col bad">
+        <div class="compare-tag">Most brands</div>
+        <h3>Without Atlas Gold</h3>
+        <ul>
+          <li><span class="x">×</span> Powdered or capsule form</li>
+          <li><span class="x">×</span> Diluted with synthetic fillers</li>
+          <li><span class="x">×</span> Sourced from anonymous suppliers</li>
+          <li><span class="x">×</span> No third-party lab transparency</li>
+          <li><span class="x">×</span> Marked up to look premium</li>
+          <li><span class="x">×</span> Faceless customer support</li>
+        </ul>
+      </div>
+      <div class="compare-vs"><span>vs</span></div>
+      <div class="compare-col good">
+        <div class="compare-tag good">Atlas Gold</div>
+        <h3>The pure way</h3>
+        <ul>
+          <li><span class="ok">✓</span> 100% pure resin — never powdered</li>
+          <li><span class="ok">✓</span> Zero fillers · zero dilution</li>
+          <li><span class="ok">✓</span> Hand-harvested above 18,000ft</li>
+          <li><span class="ok">✓</span> Third-party lab tested every batch</li>
+          <li><span class="ok">✓</span> Direct from harvesters in Gilgit–Baltistan</li>
+          <li><span class="ok">✓</span> Two brothers · every jar checked personally</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== BENEFITS ============================== -->
+<section class="benefits">
+  <div class="wrap">
+    <div class="benefits-head">
+      <div>
+        <span class="eyebrow" data-rev><span class="dot"></span>Why Atlas Gold</span>
+        <h2 class="display" data-rev data-d="1">An <em>edge</em>,<br/>quietly earned.</h2>
+      </div>
+      <p class="lead" data-rev data-d="2">
+        Shilajit isn't a stimulant. It's foundational. A daily mineral primer that lifts the floor on energy, focus and recovery — without the spike. These are the six effects most reported by our community.
+      </p>
+    </div>
+
+    <div class="bgrid">
+      <div class="bcell feature span6" data-rev>
+        <span class="num">01 / 06</span>
+        <div class="ico"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8z"/></svg></div>
+        <h3>Steady energy. No jitters.</h3>
+        <p>A consistent, day-long current of energy — not the spike-and-crash of caffeine. The kind of steady that you only notice once you've had it.</p>
+      </div>
+      <div class="bcell span3" style="grid-column: span 3;" data-rev data-d="1">
+        <span class="num">02 / 06</span>
+        <div class="ico"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M9 18V5l12-2v13M9 9l12-2"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></div>
+        <h3>Deeper focus</h3>
+        <p>Sharper cognitive function and the kind of clarity that makes deep work feel easy.</p>
+      </div>
+      <div class="bcell span3" style="grid-column: span 3;" data-rev data-d="2">
+        <span class="num">03 / 06</span>
+        <div class="ico"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M20 12c0 4-3.6 9-8 9s-8-5-8-9 3.6-9 8-9 8 5 8 9z"/><path d="M12 8v8M8 12h8"/></svg></div>
+        <h3>Hormonal support</h3>
+        <p>A foundational mineral primer for natural hormonal balance and drive.</p>
+      </div>
+
+      <div class="bcell span3" style="grid-column: span 3;" data-rev>
+        <span class="num">04 / 06</span>
+        <div class="ico"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 12h4l3-9 4 18 3-9h4"/></svg></div>
+        <h3>Gym & recovery</h3>
+        <p>Better performance during, less soreness after. Faster return to baseline.</p>
+      </div>
+      <div class="bcell span3" style="grid-column: span 3;" data-rev data-d="1">
+        <span class="num">05 / 06</span>
+        <div class="ico"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 0 0 18M3 12h18"/></svg></div>
+        <h3>Sleep & mood</h3>
+        <p>Deeper sleep, calmer mornings. Wake up actually feeling rested.</p>
+      </div>
+      <div class="bcell feature span6" data-rev data-d="2">
+        <span class="num">06 / 06</span>
+        <div class="ico"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 2 4 22h16L12 2z"/><path d="M12 9v6"/></svg></div>
+        <h3>Hair, skin & vitality.</h3>
+        <p>85+ trace minerals working quietly in the background — supporting hair restoration, skin quality, and the kind of long-term vitality you build, not chase.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== RITUAL ============================== -->
+<section class="ritual" id="ritual">
+  <div class="wrap">
+    <div class="ritual-head">
+      <span class="eyebrow"><span class="dot"></span>The Daily Ritual</span>
+      <h2 class="display" data-rev>Four steps. <em>One minute.</em><br/>A lifetime of difference.</h2>
+    </div>
+
+    <div class="steps">
+      <div class="step" data-rev data-d="1">
+        <div class="circ">i</div>
+        <h4>Measure</h4>
+        <p>Take a pea-sized amount (300–500mg) using the included premium metal spoon.</p>
+      </div>
+      <div class="step" data-rev data-d="2">
+        <div class="circ">ii</div>
+        <h4>Dissolve</h4>
+        <p>Stir into warm water, coffee or milk — or place directly under the tongue. Avoid boiling water.</p>
+      </div>
+      <div class="step" data-rev data-d="3">
+        <div class="circ">iii</div>
+        <h4>Drink</h4>
+        <p>Best taken on an empty stomach each morning for maximum absorption.</p>
+      </div>
+      <div class="step" data-rev data-d="4">
+        <div class="circ">iv</div>
+        <h4>Build up</h4>
+        <p>Daily consistency is the secret. You can work up to 1g per day as your body adjusts.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== LAB ============================== -->
+<section class="lab" id="lab">
+  <div class="wrap lab-grid">
+    <div class="lab-text">
+      <span class="eyebrow" data-rev><span class="dot"></span>Independently Verified</span>
+      <h2 class="display" data-rev data-d="1">Tested for <em>everything</em> we won't tolerate.</h2>
+      <p class="lead" data-rev data-d="2">
+        Every batch of Atlas Gold is sent to Eurofins — one of the world's largest independent food-testing laboratories — for a full 14-panel analysis. Heavy metals, microbiology, fulvic concentration, authenticity. Our certificate of analysis is published with every order.
+      </p>
+
+      <div class="lab-list" data-rev data-d="3">
+        <div class="row"><span class="n">01</span><span class="name">Essential minerals</span><span class="val">85+ verified</span></div>
+        <div class="row"><span class="n">02</span><span class="name">Fulvic acid</span><span class="val">High concentration</span></div>
+        <div class="row"><span class="n">03</span><span class="name">Heavy metals</span><span class="val">Within safe limits</span></div>
+        <div class="row"><span class="n">04</span><span class="name">Format</span><span class="val">100% pure resin</span></div>
+        <div class="row"><span class="n">05</span><span class="name">Fillers / additives</span><span class="val">None — zero</span></div>
+        <div class="row"><span class="n">06</span><span class="name">Authenticity</span><span class="val">Third-party verified</span></div>
+      </div>
+    </div>
+
+    <aside class="cert with-img" data-rev data-d="2">
+      <div class="top">
+        <span>Authenticity Certificate</span>
+        <span class="gold">100% Pure Resin</span>
+      </div>
+      <div class="cert-photo">
+        <img src="https://atlasgoldshilajit.com/cdn/shop/files/Close_up_Image_1200_x_1200.png" alt="Close-up of Atlas Gold shilajit resin" />
+      </div>
+      <div class="signature">
+        <div>
+          <div class="sig">Atlas Gold</div>
+          <div>Two brothers · every jar</div>
+        </div>
+        <div style="text-align:right;">
+          <div>Origin</div>
+          <div>Gilgit–Baltistan</div>
+        </div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<!-- ============================== TESTIMONIALS ============================== -->
+<section class="test">
+  <div class="wrap">
+    <div class="test-head">
+      <div>
+        <span class="eyebrow" data-rev><span class="dot"></span>The Community</span>
+        <h2 class="display" data-rev data-d="1">A <em>quiet</em> revolution<br/>of daily users.</h2>
+      </div>
+      <div class="meta" data-rev data-d="2">
+        <div><span class="stars">★★★★★</span> · 4.9 / 5</div>
+        <div class="num">98%</div>
+        <div>recommend Atlas Gold</div>
+      </div>
+    </div>
+
+    <div class="test-grid">
+      <article class="tcard" data-rev data-d="1">
+        <span class="quote-mark">“</span>
+        <p>Energy levels are through the roof and my cognitive function is insane.</p>
+        <div class="who">
+          <div>
+            <div class="name">Nick</div>
+            <div class="role">Verified buyer</div>
+          </div>
+          <span class="stars">★★★★★</span>
+        </div>
+      </article>
+
+      <article class="tcard" data-rev data-d="2">
+        <span class="quote-mark">“</span>
+        <p>Energy through the day is just more consistent. Not jittery like caffeine — just steady.</p>
+        <div class="who">
+          <div>
+            <div class="name">Ryan B.</div>
+            <div class="role">Verified buyer</div>
+          </div>
+          <span class="stars">★★★★★</span>
+        </div>
+      </article>
+
+      <article class="tcard" data-rev data-d="3">
+        <span class="quote-mark">“</span>
+        <p>Recovery is everything for me — soreness has dropped noticeably.</p>
+        <div class="who">
+          <div>
+            <div class="name">Connor W.</div>
+            <div class="role">Verified buyer</div>
+          </div>
+          <span class="stars">★★★★★</span>
+        </div>
+      </article>
+
+      <article class="tcard" data-rev data-d="4">
+        <span class="quote-mark">“</span>
+        <p>Sleep quality has improved a lot. Waking up actually feeling rested.</p>
+        <div class="who">
+          <div>
+            <div class="name">Sophie L.</div>
+            <div class="role">Verified buyer</div>
+          </div>
+          <span class="stars">★★★★★</span>
+        </div>
+      </article>
+
+      <article class="tcard" data-rev data-d="5">
+        <span class="quote-mark">“</span>
+        <p>One of the only supplements I actually notice working.</p>
+        <div class="who">
+          <div>
+            <div class="name">Marcus T.</div>
+            <div class="role">Verified buyer</div>
+          </div>
+          <span class="stars">★★★★★</span>
+        </div>
+      </article>
+
+      <article class="tcard" data-rev data-d="5">
+        <span class="quote-mark">“</span>
+        <p>Two brothers behind every jar — you can feel the care. Bitter, real, the way shilajit should be.</p>
+        <div class="who">
+          <div>
+            <div class="name">Atlas Community</div>
+            <div class="role">98% recommend</div>
+          </div>
+          <span class="stars">★★★★★</span>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== FAQ ============================== -->
+<section class="faq" id="faq">
+  <div class="wrap faq-grid">
+    <div class="faq-side">
+      <span class="eyebrow" data-rev><span class="dot"></span>Frequently Asked</span>
+      <h2 class="display" data-rev data-d="1">Everything <em>worth</em> knowing.</h2>
+      <p class="lead" data-rev data-d="2">If you can't find your answer here, write to us at <a style="color:var(--gold-2); border-bottom:1px solid var(--gold);" href="mailto:hello@atlasgoldshilajit.com">hello@atlasgoldshilajit.com</a>. We answer every message personally, usually within a day.</p>
+    </div>
+
+    <div class="faq-list" data-rev>
+      <details open>
+        <summary>How is Atlas Gold different from capsules or powder?<span class="pl"></span></summary>
+        <p class="ans">Capsules and powders are typically processed shilajit reformulated with binders or fillers. Resin is the original, unaltered form — the way shilajit has been used for thousands of years. It contains the highest concentration of bioactive fulvic acid and trace minerals, with no added ingredients.</p>
+      </details>
+      <details>
+        <summary>How long until I notice the effects?<span class="pl"></span></summary>
+        <p class="ans">Most people report subtle shifts in energy and clarity within the first two weeks. Deeper benefits — recovery, sleep quality, hormonal balance — typically appear between weeks four and six of consistent daily use.</p>
+      </details>
+      <details>
+        <summary>What does it taste like?<span class="pl"></span></summary>
+        <p class="ans">Bitter, smoky, deeply mineral. Some describe it as the taste of a mountain. Mixed into warm milk with a touch of honey, it becomes genuinely pleasant — and many users come to crave it.</p>
+      </details>
+      <details>
+        <summary>Is it safe to take every day?<span class="pl"></span></summary>
+        <p class="ans">Yes. Shilajit has been consumed daily for centuries in traditional Ayurvedic practice. Our resin is independently lab-verified to be free of heavy metals and microbial contamination. As with any supplement, consult your physician if pregnant, nursing, or on medication.</p>
+      </details>
+      <details>
+        <summary>How is it sourced and tested?<span class="pl"></span></summary>
+        <p class="ans">Atlas Gold is harvested exclusively above 18,000ft in Gilgit–Baltistan and kept in 100% pure resin form — never powdered, never diluted. Every batch is third-party lab tested for purity and authenticity.</p>
+      </details>
+      <details>
+        <summary>What is the 30-day guarantee?<span class="pl"></span></summary>
+        <p class="ans">If Atlas Gold doesn't earn a place in your daily routine within 30 days, we'll make it right. Founded by two brothers who take every jar personally — your message reaches us directly.</p>
+      </details>
+      <details>
+        <summary>What's included in the box?<span class="pl"></span></summary>
+        <p class="ans">A 30g jar of pure Himalayan shilajit resin (60 servings, 4–6 week supply) and a complimentary premium metal spoon for measuring your daily pea-sized serving.</p>
+      </details>
+      <details>
+        <summary>Shipping & restock?<span class="pl"></span></summary>
+        <p class="ans">Free shipping on orders over $100 AUD. Currently restocking — pre-order to secure yours from the next batch, shipping in approximately one week.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== PROMISE ============================== -->
+<section class="promise">
+  <div class="wrap">
+    <span class="eyebrow"><span class="dot"></span>The Atlas Promise</span>
+    <h2 class="display">Try it for <em>thirty</em> days.<br/>Or your money back.</h2>
+    <p>Two brothers stand behind every single jar. If Atlas Gold doesn't earn its place in your morning, we'll refund you. Free shipping over $100 AUD · 30-day guarantee.</p>
+
+    <form class="news-form" onsubmit="event.preventDefault(); this.querySelector('button').textContent='✓ Joined';">
+      <input type="email" placeholder="Your email — for letters from the mountain" required />
+      <button type="submit">Join</button>
+    </form>
+  </div>
+  <div class="giant">Atlas Gold</div>
+</section>
+
+<!-- ============================== FOOTER ============================== -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="brand">ATLAS&nbsp;GOLD<span class="sub">— EST. SHILAJIT CO. —</span></div>
+        <p>Founded by two brothers. Pure Himalayan shilajit resin, harvested above 18,000ft in Gilgit–Baltistan. 85+ minerals. Zero fillers. Every jar checked personally.</p>
+      </div>
+      <div class="foot-col">
+        <h5>Shop</h5>
+        <a href="#">The Resin (30g)</a>
+        <a href="#">Subscription</a>
+        <a href="#">Gift sets</a>
+        <a href="#">Wholesale</a>
+      </div>
+      <div class="foot-col">
+        <h5>Learn</h5>
+        <a href="#">Origin journal</a>
+        <a href="#">Lab reports</a>
+        <a href="#">The ritual</a>
+        <a href="#">Press</a>
+      </div>
+      <div class="foot-col">
+        <h5>Care</h5>
+        <a href="#">Contact</a>
+        <a href="#">Shipping</a>
+        <a href="#">Returns</a>
+        <a href="#">FAQ</a>
+      </div>
+    </div>
+
+    <div class="foot-bottom">
+      <div>© MMXXVI Atlas Gold Co. — All rights reserved.</div>
+      <div class="pay">
+        <span>VISA</span><span>MC</span><span>AMEX</span><span>PAYPAL</span><span>KLARNA</span>
+      </div>
+      <div>Stockholm · Altai · Worldwide</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // intersection reveal
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+  }, {threshold: .12, rootMargin: "0px 0px -8% 0px"});
+  document.querySelectorAll('[data-rev]').forEach(el => io.observe(el));
+
+  // qty
+  document.querySelectorAll('.qty').forEach(q=>{
+    const v = q.querySelector('.v');
+    const [m,p] = q.querySelectorAll('button');
+    m.onclick = ()=> v.textContent = Math.max(1, parseInt(v.textContent)-1);
+    p.onclick = ()=> v.textContent = Math.min(99, parseInt(v.textContent)+1);
+  });
+
+  // close other details
+  document.querySelectorAll('details').forEach(d=>{
+    d.addEventListener('toggle', ()=>{
+      if(d.open) document.querySelectorAll('details').forEach(o => { if(o!==d) o.open=false; });
+    });
+  });
+
+  // sticky buy bar — show after scrolling past hero, hide near footer
+  const buybar = document.getElementById('buybar');
+  const hero = document.querySelector('.hero');
+  const promise = document.querySelector('.promise');
+  const onScroll = () => {
+    const heroBottom = hero.offsetTop + hero.offsetHeight;
+    const promiseTop = promise ? promise.offsetTop : Infinity;
+    const y = window.scrollY + window.innerHeight;
+    buybar.classList.toggle('show', window.scrollY > heroBottom - 100 && y < promiseTop + 200);
+  };
+  window.addEventListener('scroll', onScroll, {passive: true});
+  onScroll();
+
+  // social proof toast — rotating recent activity
+  const proof = [
+    {name:'Aisha N.',    place:'Stockholm',  action:'just reserved a jar', time:'2 min ago'},
+    {name:'Daniel R.',   place:'London',     action:'subscribed monthly',  time:'8 min ago'},
+    {name:'Marcus T.',   place:'Berlin',     action:'left a 5★ review',    time:'14 min ago'},
+    {name:'Sophie L.',   place:'Sydney',     action:'just reserved a jar', time:'22 min ago'},
+    {name:'Connor W.',   place:'Toronto',    action:'subscribed monthly',  time:'31 min ago'},
+    {name:'Ryan B.',     place:'Melbourne',  action:'just reserved a jar', time:'45 min ago'},
+    {name:'Nick',        place:'Auckland',   action:'left a 5★ review',    time:'58 min ago'},
+  ];
+  const toast = document.getElementById('toast');
+  const tName = document.getElementById('toast-name');
+  const tPlace= document.getElementById('toast-place');
+  const tAct  = document.getElementById('toast-action');
+  const tTime = document.getElementById('toast-time');
+  let pIx = 0;
+  const showProof = () => {
+    const p = proof[pIx % proof.length]; pIx++;
+    tName.textContent = p.name; tPlace.textContent = p.place;
+    tAct.textContent  = p.action; tTime.textContent = p.time;
+    toast.classList.add('show');
+    setTimeout(()=> toast.classList.remove('show'), 5500);
+  };
+  setTimeout(showProof, 4500);
+  setInterval(showProof, 12000);
+
+  // staggered hotspot fade-in when product stage enters viewport
+  const stage = document.querySelector('.product-stage');
+  if(stage){
+    const hots = stage.querySelectorAll('.hot');
+    hots.forEach(h => { h.style.opacity = 0; h.style.transform = 'translateY(8px)'; h.style.transition = 'opacity .7s ease, transform .7s ease';});
+    const ho = new IntersectionObserver(es => {
+      es.forEach(e => {
+        if(e.isIntersecting){
+          hots.forEach((h,i)=>{
+            setTimeout(()=>{ h.style.opacity = 1; h.style.transform = 'none'; }, 250 + i*180);
+          });
+          ho.disconnect();
+        }
+      });
+    }, {threshold: .35});
+    ho.observe(stage);
+  }
+</script>
+</body>
+</html>
